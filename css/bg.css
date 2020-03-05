@@ -1,0 +1,82 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	margin: 0px auto;
+	width: 1180px;
+	height: auto;
+}
+div.head_imgs{
+	margin: 0px auto;
+	width: 75%;
+	height: auto;
+}
+div.daohang{
+	margin: 0px;
+	width: 100%;
+	height: 30px;
+	background-color: #e37b00;
+	/*background-color: #191970;*/
+}
+div.bodys{
+	margin: 15px auto;
+	width: 75%;
+	height: auto;
+	background-color: #ffe557;
+	/*background-color: #c0c0c0;*/
+}
+div.footing{
+	margin: 0px auto;
+	width: 75%;
+	height: 190px;
+	background-color: black;
+}
+/*导航标签*/
+div.biaoqian{
+	margin: 0px auto;
+	width: 600px;
+	height: 30px; 
+}
+div.biaoqian table{
+	text-align: center;
+}
+div.biaoqian a:link,a:visited{
+	display: block;
+	padding: 3px;
+	width: 200px;
+	font-size: 16px;
+	text-decoration: none;
+	color: white;
+	text-align: center;
+}
+div.biaoqian a:hover,a:active{
+	/*background-color: #00008b;*/
+	background-color: #ff0000;
+	text-decoration: underline;
+}
+/*底部排版*/
+div.foot_img{
+	margin: 0px auto;
+	padding: 20px;
+	width: 800px;
+	height: 150px;
+	text-align: center;
+}
+div.foot_img img{
+	float: left;
+}
+div.foot_img span{
+	clear: none;
+	margin-top: 40px;
+	text-align: center;
+	color: white;
+	font-size: 24px;
+}
+div.foot_img p{
+	clear: none;
+	margin-top: 40px;
+	text-align: center;
+	color: white;
+	font-size: 10px;
+}

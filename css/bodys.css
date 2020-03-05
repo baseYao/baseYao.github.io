@@ -1,0 +1,140 @@
+
+/*主体头部*/
+div.photo{box-shadow: 1px 1px 2px gray;}
+div.www{float: left;}
+div.wwwHead{
+    width: 760px;
+    /* border:  1px solid gray; */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: white;
+    box-shadow: 1px 1px 2px gray;
+    margin-bottom: 10px;
+}
+div.headwww{
+    background-color: #025b85;
+    height: 40px;
+}
+div.hd{width: 224px;margin: 0px auto;}
+div.headwww h2{
+    color: white;
+    font-size: 32px;
+    float: left;
+}
+div.headwww img{float: left;padding-top: 4px;}
+/*主体左部*/
+div.sou{
+    width: 760px;
+    background-color: white;
+    box-shadow: 1px 1px 2px gray;
+    float: left;
+}
+div.sou>table{
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+div.sou th{
+    border: 1px solid black;}
+div.sou th{padding: 5px;}
+table.tbone td{width: 16.6%}
+div.sou a:link,div.sou a:visited{
+    display: block;
+    width: 100%;
+    color: black;
+    text-decoration: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+div.sou a:hover,div.sou a:active{
+    color: white;
+    background-color: #025b85;
+}
+/*主体右部
+div.learn{
+    margin-left: 10px;
+    width: 400px;
+    box-shadow: 1px 1px 2px gray;
+    background-color: white;
+    float: left;
+}
+div.learn>table{
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+div.learn th{padding: 5px;border: 1px solid black;}
+div.learn a:link,div.learn a:visited{
+    display: block;
+    width: 100%;
+    color: black;
+    text-decoration: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+div.learn a:hover,div.learn a:active{
+    color: white;
+    background-color: #025b85;
+}*/
+/*右侧论坛*/
+div.bbs{
+    margin-left: 20px;
+    width: 220px;
+    height: auto;
+    box-shadow: 1px 1px 2px gray;
+    background-color: white;
+    float: left;
+}
+div.bbs>h3{
+    padding: 5px;
+    text-align: center;
+    color: white;
+    background-color: #025b85;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+div.bbs ul{
+    list-style-type: none;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+div.bbs a:link,div.bbs a:visited{
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+div.bbs a:hover,div.bbs a:active{
+    color: white;
+    background-color: #025b85;
+}
+/*底部*/
+div.ft{
+    background-color: black;
+    width: 960px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 20px;
+    float: left;
+}
+div.lg img{
+    padding: 10px;
+    width: 150px;
+    height: 150px;
+    float: left;
+}
+div.txt{
+    padding: 40px;
+    width: 540px;
+    text-align: center;
+    font-size: 32px;
+    float: left;
+    color: white;
+}
+div.txt p{
+    letter-spacing: 10px;
+    line-height: 45px;
+}

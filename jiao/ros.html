@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>教程整合</title>
+	<link rel="icon" type="image/x-icon" href="../photo/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="../css/kuang.css">
+	<!-- <link rel="stylesheet" type="text/css" href="../css/ruanjian.css"> -->
+	<link rel="stylesheet" type="text/css" href="../css/jiao.css">
+</head>
+<body>
+	<div class="heads">
+		<a href="../index.html"><img src="../logo/logotc.png" width="200px" title="首页"></a>
+		<ul>
+			<li><a href="../index.html">首页</a></li>
+			<li><a href="../html/ruanjian.html">windows软件下载</a></li>
+			<li><a href="../html/jiao.html">教程整合</a></li>
+			<li><a href="https://down.abcsoftware.cn/" title="abcsoftware.cn" target="_blank">资源下载</a></li>
+		</ul>
+		<div class="tt"></div>
+	</div>
+	<div class="bodys">
+		<div class="jieshao">
+			<h2>Ros系统安装教程</h2><h5>作者：寂</h5><hr>
+			<div class="bd">
+                <h3>安装说明</h3>
+                <div class="bd_head">
+                    <a href="https://ubuntu.com/download/alternative-downloads" target="_blank" title="点击跳转下载">安装环境：Ubuntu16.04LTS</a>
+                    安装的Ros版本：Kinetic
+                    <table>
+                        <tr>
+                            <td>Ros版本</td>
+                            <td>对应Ubuntu版本</td>
+                        </tr>
+                        <tr>
+                            <td>Melodic</td>
+                            <td>Ubuntu18.04</td>
+                        </tr>
+                        <tr>
+                            <td>Kinetic</td>
+                            <td>Ubuntu16.04</td>
+                        </tr>
+                        <tr>
+                            <td>Indigo</td>
+                            <td>Ubuntu14.04</td>
+                        </tr>
+                    </table>
+                </div>
+                <h3>安装准备</h3>
+                <div class="bd_head">
+                    安装好Ubuntu16.04LTS，可以是在虚拟机上，也可以是笔记本或者台式机直接安装。<br>
+                    要求有一定的Linux操作基础，知道一些基础命令。
+                </div>
+                <h3>安装开始</h3>
+                <h4>一、更换软件源</h4>
+                <div class="bd_head">
+                    这一步非常重要。软件源原本默认是Ubuntu官方的软件源。现在要安装Ros系统，我们还需要添加Ros系统的软件源。<br>
+                    可以用快捷键Ctlr+Alt+T打开终端，或者在桌面鼠标右键打开终端。<br>
+                    需要修改软件源的源文件。文件目录为：/etc/apt/source.list。<br>
+                    可以使用Tab键补齐命令，建议在改源之前先备份文件。<br><hr>
+                    <h4 style="color: red; padding: 5px;">方式一：官方源</h4>
+                    在终端直接输入命令：
+                    <div class="code">
+                        $ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+                    </div>
+                    <h4 style="color: red; padding: 5px;">方式二：国内中科大源</h4>
+                    这里建议只用国内的软件源，下载会更快。
+                    <div class="code">$ sudo sh -c '. /etc/lsb-release && echo "deb http://mirrors.ustc.edu.cn/ros/ubuntu/ $DISTRIB_CODENAME main" > /etc/apt/sources.list.d/ros-latest.list'</div>
+                    完了之后输入密钥：
+                    <div class="code">
+                        $ sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key 0xB01FA116
+                    </div>
+                    如果上面那个不行，再试试这个：
+                    <div class="code">$ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116</div>
+                    成功了之后就更新一下软件包：
+                    <div class="code">$ sudo apt-get install update</div> 
+                </div>
+                <h4>二、安装Ros软件包</h4>
+                    <div class="bd_head">
+                        安装的形式很简单：sudo apt-get install ros-版本-desktop-full<br>
+                        上面这个是完整安装，还有一个不完整安装就是把后面的full去掉。<br>
+                        所以我们安装Kinetic版本的命令就是：
+                    <div class="code">$ sudo apt-get install ros-Kinetic-desktop-full</div>
+                    安装一些依赖工具包：
+                    <div class="code">$ sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool build-essential</div>
+                        初始化
+                        <div class="code">$ sudo rosdep init<br>$ rosdep update</div>
+                    </div>
+                    <h3>配置环境变量</h3>
+                    <div class="bd_head">
+                        <div class="code">$ echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc<br>$ source ~/.bashrc</div>
+                    </div>
+                    <h3>测试</h3>
+                    <div class="bd_head">
+                        在终端输入：roscore -h<br>
+                        如果没有报错则安装完成
+                        输入下面这个命令可以启动Ros系统。
+                        <div class="code">$ roscore</div>
+                        打开一个新的终端，输入下面的命令，还可以出现一个随机的乌龟：
+                        <div class="code">$ rosrun turtlesim turtlesim_node</div>
+                    </div>
+                <div>参考教程：<br>
+                    <div style="padding: 10px;"><a href="https://www.cnblogs.com/tangjizhong/archive/2019/08/03/11296122.html">https://www.cnblogs.com/tangjizhong/archive/2019/08/03/11296122.html</a></div>
+                    <div style="padding: 10px;"><a href="https://blog.csdn.net/eaibot/article/details/51044739">https://blog.csdn.net/eaibot/article/details/51044739</a></div>
+                </div>
+            </div>
+		</div></div>
+	</div>
+	<div class="foots">@AI Technology craystal</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+/* 主体 */
+div.jieshao{
+	margin: 0px auto;
+	padding: 20px;
+	width: 95%;
+	height: auto;
+}
+div.jieshao h2{
+	color: gray;
+}
+div.bd{
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 1px 1px 2px gray;
+    background-color: white;
+}
+h5{
+    color: gray;
+    padding: 5px;
+}
+div.jieshao a:link,div.jieshao a:visited{
+	display: block;
+	/* padding: 10px; */
+	color: black;
+	text-decoration: none;
+}
+div.jieshao a:hover,div.jieshao a:active{
+	color: blue;
+}
+div.bd_head{
+	margin: 10px;
+	padding: 10px;
+}
+div.code{
+	background-color: rgb(192, 189, 189);
+	padding: 10px;
+	margin: 5px;
+}
+div.bd_head table,div.jieshao tr,div.jieshao th,div.jieshao td{
+	border: 1px solid black;
+}
+div.bd_head table{
+	margin: 10px;
+	width: auto;
+	border-collapse: collapse;
+}
+div.bd_head th{
+	background-color: #5b84de;
+	height: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: center;
+}
+div.bd_head td{
+	width: auto;
+	padding: 10px;
+	text-align: center;
+}

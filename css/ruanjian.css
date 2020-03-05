@@ -1,0 +1,83 @@
+/* 主体头部目录 */
+div.h{
+    margin-right: 20px;
+    width: 180px;
+    height: auto;
+    box-shadow: 1px 1px 2px gray;
+    background-color: white;
+    float: left;
+}
+div.h>h3{
+    padding: 5px;
+    text-align: center;
+    color: white;
+    background-color: #025b85;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+div.bd_h ul{
+    list-style-type: none;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+div.bd_h li{
+	margin-left: 20px;
+	display: inline;
+}
+div.h a:link,div.h a:visited{
+	display: block;
+    width: 100%;
+    text-decoration: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+	color: rgb(253, 122, 105);
+}
+div.h a:hover,div.h a:active{
+	color: white;
+    background-color: #025b85;
+}
+/* 列表部分 */
+div.jieshao{
+	float: left;
+}
+div.ruan {
+	width: 780px;
+    background-color: white;
+    box-shadow: 1px 1px 2px gray;
+	float: left;
+	padding: 10px;
+}
+div.jieshao table,div.jieshao tr,div.jieshao th,div.jieshao td{
+	border: 2px solid #012678;
+}
+div.jieshao table{
+	margin: 10px auto;
+	width: 100%;
+	border-collapse: collapse;
+}
+div.jieshao th{
+	background-color: #5b84de;
+	height: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: center;
+}
+th.thcs{
+	width: 650px;
+}
+div.jieshao td{
+	width: auto;
+	padding: 10px;
+}
+div.jieshao a:link,div.jieshao a:visited{
+	display: block;
+	padding: 10px;
+	width: 80px;
+	color: black;
+	text-align: center;
+	text-decoration: none;
+}
+div.jieshao a:hover,div.jieshao a:active{
+	color: blue;
+}
