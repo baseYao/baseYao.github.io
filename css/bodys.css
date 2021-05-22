@@ -1,4 +1,8 @@
-
+/* 
+作者:yaoz
+更新日期:2021.5.22
+更新内容:添加搜索功能,添加日期显示
+*/
 /*主体头部*/
 div.photo{box-shadow: 1px 1px 2px gray;}
 div.www{float: left;}
@@ -16,6 +20,96 @@ div.headwww{
     height: 40px;
 }
 div.hd{width: 224px;margin: 0px auto;}
+/* 时间显示 */
+#times{
+    height: auto;
+    width: auto;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    color: white;
+    text-align: center;
+    padding: 5px 5px;
+}
+#time{
+    font-weight: bold;
+    font-size: 60px;
+}
+/* 搜索框功能 */
+div.photos{
+    background-image: url(../photo/1.jpg);
+    background-size: 100% 350px;
+    /* width: 100%; */
+    height: 350px;
+}
+div.search{
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #2f3640;
+    height: 40px;
+    width: auto;
+    border-radius: 40px;
+    padding: 10px;/*四边填充10 */
+}
+.search:hover > .search-txt{
+    width: 240px;
+    padding: 0 6px;
+}
+
+.search:hover > .search-btn{
+    background: #fff;
+}
+.search-btn {
+    color:#fb3f51 ;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background:#2f3640 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    transition: .4s;
+    border: 0px;
+}
+.search-btn > img{
+    width: auto;
+    height: auto;
+    max-width: 80%;
+    max-height: 80%;
+}
+.search-txt{
+    border: none;/*文本框边框 */
+    background: none;
+    outline: none;/*文本框四周轮廓*/
+    float: left;
+    padding: 0%;
+    color: #fff;
+    font-size: 16px;
+    transition: .4s;
+    line-height: 40px;/*行高，行间距*/
+    width: 0px;
+} 
+div.searchList{
+    float: right;
+    height: auto;
+    width: 240px;
+    background-color: rgba(70, 69, 69, 0.7);
+}
+#list li{
+    line-height: 35px;
+    list-style-type: none;
+}
+#list a{
+    display: block;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+#list li:hover{
+    background: #2f3640;
+}
 div.headwww h2{
     color: white;
     font-size: 32px;

@@ -10,8 +10,35 @@
 	<link rel="icon" type="image/x-icon" href="photo/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="css/kuang.css">
 	<link rel="stylesheet" type="text/css" href="css/bodys.css">
+	<!-- <link href="https://cdn.bootcss.com/font-awesome/5.8.0/css/all.css" rel="stylesheet" /> -->
+	<!-- <script type="text/javascript" src="js/func.js"></script> -->
+	<script type="text/javascript">
+		function clock(){
+			var mydate = new Date();
+			var years = mydate.getFullYear();//年
+			var month = mydate.getMonth();
+			var day = mydate.getDate();
+			var days = mydate.getDay();
+			switch(days){
+				case 1: days = '星期一'; break;
+				case 2: days = '星期二'; break;
+				case 3: days = '星期三'; break;
+				case 4: days = '星期四'; break;
+				case 5: days = '星期五'; break;
+				case 6: days = '星期六'; break;
+				case 7: days = '星期日'; break;
+				default: days = "系统错误!"
+			}
+			document.getElementById("time").innerHTML = mydate.getHours() + ":" + mydate.getMinutes() + ":" + mydate.getSeconds();
+			var spt = document.getElementById("riqi");
+			spt.innerHTML = years + "年" + month + "月" + day + "日";
+			var spweek = document.getElementById("xq");
+			spweek.innerHTML = days;
+			window.setTimeout(clock,1000);
+		}
+	</script>
 </head>
-<body>
+<body onload="clock()">	
 	<div class="heads">
 		<a href="#"><img src="logo/logotc.png" width="200px" title="首页"></a>
 		<ul>
@@ -23,7 +50,55 @@
 		<div class="tt"></div>
 	</div>
 	<div class="bodys">
-			<div class="photos"><img src="photo/1.jpg" alt="photo" width="100%" height="350px"></div>
+			<div class="photos">
+				<div id="times">
+					<p id="time"></p>
+					<p id="riqi"></p>
+					<p id="xq"></p>
+				</div>
+				<div class="searchList">
+					<ul id="list"></ul>
+				</div>
+				<div class="search">
+					<input id="text" class="search-txt" type="text" name="text" placeholder="百度搜索">
+					<button class="search-btn" name="bdyx" id="btn" onclick="cliksearch()">
+						<img src="photo/search_icon.png" alt="搜索"></button>
+						<script type="text/javascript">
+						var txt = document.getElementById("text"); 
+						var oUl = document.getElementById("list"); 
+						txt.onkeyup = function(){ 
+							var val = txt.value; 
+							var oScript = document.createElement("script");//动态创建script标签 
+							oScript.src = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+val+"&cb=callback"; 
+							//添加链接及回调函数 
+							document.body.appendChild(oScript);//添加script标签 
+							document.body.removeChild(oScript);//删除script标签 
+							/*input框中按下回车根据input的值跳转页面*/
+							if(event.keyCode==13){
+								/*将百度作为连接,传入input的值,并跳入新的页面*/
+								cliksearch();
+							}
+						}
+						document.body.onclick = function(){
+							oUl.style.display = "none";
+						}
+						//回调函数 
+						function callback(data){ 
+							var str=""; 
+							for(var i=0;i<data.s.length;i++){ 
+							str += "<li><a target=\"_blank\"  href=\"https://www.baidu.com/s?wd="+data.s[i]+"\">"+data.s[i]+"</a></li>"; 
+							} 
+							//console.log(str); 
+							oUl.innerHTML=str; 
+							oUl.style.display="block"; 
+						}
+						function cliksearch(){
+							url = "https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd="+txt.value
+							window.open(url, '_blank').location;
+						}
+						</script>
+				</div>
+			</div>
 		<div class="www">
 			<div class="wwwHead">
 				<div class="headwww"><div class="hd"><img src="logo/logow.png" width="32px" height="32px">
@@ -34,14 +109,13 @@
 					<table class="tbone">
 					<tr><th colspan="6">常用</th></tr>
 					<tr>
-						<td><a href="https://guge3.bban.top" title="国内谷歌镜像网站" target="_blank">
-						<img src="logo/google.png" width="16px">谷歌</a></td>
+						<td><a href="https://limestart.cn/" title="青柠起始页" target="_blank">青柠起始页</a></td>
 						<td><a href="https://www.baidu.com" title="baidu" target="_blank">
 						<img src="logo/baidu.ico" width="16px">百度</a></td>
 						<td><a href="https://cn.bing.com" title="bing" target="_blank">
 						<img src="logo/bing.png" width="16px">必应</a></td>
 						<td><a href="https://pan.baidu.com" title="百度网盘" target="_blank">百度网盘</a></td>
-						<td><a href="https://mail.163.com" title="163网易邮箱" target="_blank">网易邮箱</a></td>
+						<td><a href="https://email.163.com/" title="网易邮箱官网" target="_blank">网易邮箱</a></td>
 						<td><a href="https://mail.qq.com" title="QQ邮箱" target="_blank">QQ邮箱</a></td>
 					</tr>
 					<tr>
@@ -52,49 +126,66 @@
 						<td><a href="https://www.lanzou.com/" title="蓝奏云" target="_blank">蓝奏云</a></td>
 						<td><a href="https://quqi.com/" title="曲奇云盘" target="_blank">曲奇云盘</a></td>
 					</tr>
+					<tr><th colspan="3">在线翻译工具</th><th colspan="3">传输及云服务</th></tr>
+					<tr>
+						<td><a href="https://fanyi.baidu.com/translate" title="百度翻译" target="_blank">百度翻译</a></td>
+						<td><a href="https://translate.google.cn/" title="谷歌翻译" target="_blank">谷歌翻译</a></td>
+						<td><a href="https://fanyi.sogou.com/text" title="搜狗翻译" target="_blank">搜狗翻译</a></td>
+						<!--  -->
+						<td><a href="http://as.vivo.com/" title="手机与电脑文件互传" target="_blank">互传</a></td>
+						<td><a href="https://cloud.baidu.com/?from=console" title="百度智能云管理平台" target="_blank">百度AI</a></td>
+						<td><a href="https://mp.weixin.qq.com/" title="微信公众号管理平台" target="_blank">微信公众平台</a></td>
+					</tr>
+					<tr><th colspan="3">学术</th><th colspan="3">日用</th></tr>
+					<tr>
+						<td><a href="https://chn.oversea.cnki.net/index/" title="文献查找" target="_blank">中国知网</a></td>				
+						<td><a href="https://xueshu.baidu.com/" title="文献查找" target="_blank">百度学术</a></td>
+						<td><a href="https://user.cn-ki.net/login" title="知网论文免费下载" target="_blank">iData</a></td>
+						<!--  -->
+						<td><a href="https://www.flvcd.com/" title="视频爬取" target="_blank">硕鼠</a></td>
+						<td><a href="https://v.qq.com/" title="腾讯在线视频" target="_blank">腾讯视频</a></td>
+						<td><a href="https://wht.im/" title="其它导航网站" target="_blank">万花筒</a></td>
+					</tr>
 					</table>
-					<table>
-						<tr><th colspan="3">各类资源获取</th></tr>
+					<table class="tbone">
+						<tr><th colspan="3">各类资源获取</th><th colspan="3">学习网站</th></tr>
 						<tr>
+							<!-- 资源获取 -->
 							<td><a href="https://www.itsk.com/" title="IT天空" target="_blank">IT天空</a></td>
-							<td><a href="http://msdn.itellyou.cn" title="MSDN" target="_blank">微软下载</a></td>						
-							<td><a href="https://www.baiduwp.com" title="panDownload" target="_blank">panDownload</a></td>
+							<td><a href="http://msdn.itellyou.cn" title="MSDN" target="_blank">微软下载</a></td>
+							<td><a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/" title="Python的Windows第三方库下载" target="_blank">pythonlibs</a></td>
+								<!-- 学习网站 -->
+							<td><a href="http://www.51zxw.net/" title="51自学网" target="_blank">我要自学网</a></td>
+							<td><a href="https://ilovefishc.com/" title="编程学习视频" target="_blank">鱼C工作室</a></td>
+							<td><a href="https://www.jikexueyuan.com/" title="极客学院" target="_blank">极客学院</a></td>
 						</tr>
 						<tr>
-							<td><a href="https://www.sq688.com" title="在线无损音乐下载" target="_blank">无损音乐下载</a></td>
-							<td><a href="http://ifkdy.com" title="影视搜索" target="_blank">影视搜索</a></td>
-							<td><a href="http://www.fanfenx.com/" title="两点半源码官网" target="_blank">八点半源码</a></td>
+							<!-- 资源 -->
+							<td><a href="https://mirrors.tuna.tsinghua.edu.cn/" title="清华开源镜像站" target="_blank">清华镜像</a></td>
+							<td><a href="https://yabook.org/jisuanji/" title="免费下载PDF电子书" target="_blank">雅书</a></td>
+							<td><a href="https://guge3.bban.top" title="SCI论文免费下载" target="_blank">SCI-HUB</a></td>
+							<!-- 学习 -->
+							<td><a href="http://bbs.fanfenx.com/" title="腾讯课堂" target="_blank">腾讯课堂</a></td>
+							<td><a href="https://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a></td>
+							<td><a href="https://open.163.com/" title="网易公开课" target="_blank">网易公开课</a></td>
 						</tr>
 						<tr>
-							<td><a href="https://mirrors.tuna.tsinghua.edu.cn/" title="清华开源镜像站" target="_blank">清华开源镜像站</a></td>
-							<td><a href="https://yabook.org/jisuanji/" title="雅书" target="_blank">雅书</a></td>
-						</tr>
-						<tr><th colspan="3">学习网站</th></tr>
-							<tr>
-								<td><a href="http://www.51zxw.net/" title="51自学网" target="_blank">我要自学网</a></td>
-								<td><a href="https://ilovefishc.com/" title="鱼C工作室" target="_blank">鱼C工作室</a></td>
-								<td><a href="https://www.jikexueyuan.com/" title="极客学院" target="_blank">极客学院</a></td>
-							</tr>
-							<tr>
-								<td><a href="http://bbs.fanfenx.com/" title="腾讯课堂" target="_blank">腾讯课堂</a></td>
-								<td><a href="https://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a></td>
-								<td><a href="https://open.163.com/" title="网易公开课" target="_blank">网易公开课</a></td>
-							</tr>
-							<tr>
-								<td><a href="https://www.icourse163.org/" title="MOOC" target="_blank">大学慕课</a></td>
-								<td><a href="https://www.runoob.com" title="菜鸟教程" target="_blank">菜鸟教程</a></td>
-								<td><a href="https://www.w3cschool.cn" title="W3Cshool" target="_blank">编程学习网站</a></td>
-							</tr>
-						<tr><th colspan="3">工具</th></tr>
-						<tr>
-							<td><a href="https://pc.qq.com/" title="腾讯下载中心" target="_blank">腾讯下载中心</a></td>
-							<td><a href="https://getitfree.cn/" title="正版中国" target="_blank">正版中国</a></td>
+							<!-- 资源 -->
+							<td><a href="https://pc.qq.com/" title="常用软件下载" target="_blank">腾讯下载</a></td>
+							<td><a href="https://getitfree.cn/" title="正版软件下载，有些需要付费" target="_blank">正版中国</a></td>
 							<td><a href="https://uzer.me/" title="user.me" target="_blank">云端应用</a></td>
+							<!-- 学习 -->
+							<td><a href="https://www.icourse163.org/" title="MOOC" target="_blank">大学慕课</a></td>
+							<td><a href="https://www.runoob.com" title="各种编程基础资料" target="_blank">菜鸟教程</a></td>
+							<td><a href="https://www.ichunqiu.com/" target="_blank" title="网络攻防">i春秋</a></td>
 						</tr>
+						<tr><th colspan="6">工具</th></tr>
 						<tr>
-							<td><a href="https://www.chuangkit.com/" title="创客帖" target="_blank">在线平面设计</a></td>
-							<td><a href="https://lightpdf.com/zh/" title="在线PDF编辑" target="_blank">在线PDF编辑</a></td>
-							<td><a href="https://cn.office-converter.com" title="在线万能格式转换" target="_blank">在线格式转换</a></td>						
+							<td><a href="https://www.chuangkit.com/" title="创客帖" target="_blank">平面设计</a></td>
+							<td><a href="https://lightpdf.com/zh/" title="在线PDF编辑" target="_blank">PDF编辑</a></td>
+							<td><a href="https://cn.office-converter.com" title="在线万能格式转换" target="_blank">格式转换</a></td>				
+							<td><a href="https://write.qq.com/" title="阅文作家写作平台" target="_blank">作家平台</a></td>			
+							<td><a href="https://www.uupoop.com/#/" title="在线PS网站" target="_blank">在线PS</a></td>			
 						</tr>		
 					</table>
 				</div> 
@@ -112,10 +203,10 @@
 				<li><a href="http://bbs.elecfans.com/" target="_blank" title="电子发烧友论坛">电子发烧友论坛</a></li>
 				<li><a href="https://github.com" target="_blank" title="GitHub官网">GitHub官网</a></li>
 				<li><a href="https://www.cnblogs.com/" target="_blank" title="博客园">博客园</a></li>
-				<li><a href="https://www.ichunqiu.com/" target="_blank" title="i春秋">i春秋</a></li>
 				<li><a href="http://bbs.fanfenx.com/" target="_blank" title="两点半源码">两点半源码</a></li>
 				<li><a href="https://www.52pojie.cn/" target="_blank" title="吾爱破解">吾爱破解</a></li>
 				<li><a href="https://gitee.com/" target="_blank" title="码云">码云</a></li>
+				<li><a href="http://muchong.com/" target="_blank" title="小木虫">小木虫</a></li>
 			</ul>
 		</div>
 		<div class="ft">
@@ -129,6 +220,6 @@
 			</div>
 		</div>
 	</div>
-	<div class="foots">@AI Technology craystal</div>
+	<div class="foots">@先通.将寂 | AI Technology craystal</div>
 </body>
 </html>
