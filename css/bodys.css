@@ -129,6 +129,7 @@ ul.searchFun{
 }
 ul.searchFun li{
 	display: inline;
+    text-align: center;
 }
 ul.searchFun button{
     border: 0px;
@@ -137,7 +138,7 @@ ul.searchFun button{
     font-size: 20px;
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0);
-    color: rgb(151, 151, 151);
+    color: rgb(116, 116, 116);
 }
 .spe{
     color: white;

@@ -69,6 +69,7 @@
 						<li>
 							<ul class="zi">
 								<li><button id="baidu"><h3 class="spe">百度</h3></button></li>
+								<li><button id="google"><h3>谷歌1</h3></button></li>
 								<li><button id="bing"><h3>必应</h3></button></li>
 								<li><button id="sougou"><h3>搜狗</h3></button></li>
 								<li><button id="weixin"><h3>微信</h3></button></li>
@@ -78,14 +79,16 @@
 							<ul class="zi">
 								<li><button id="bili"><h3>B站</h3></button></li>
 								<li><button id="csdn"><h3>CSDN</h3></button></li>
-								<li><button id="xueshu"><h3>学术</h3></button></li>
-								<li><button id="zhihu"><h3>知乎</h3></button></li>
+								<li><button id="xueshu"><h3>百度学术</h3></button></li>
+								<li><button id="glxs"><h3>谷歌学术</h3></button></li>
 							</ul>
 						</li>
 						<li>
 							<ul class="zi">
 								<li><button id="taobao"><h3>淘宝</h3></button></li>
 								<li><button id="rj"><h3>应用</h3></button></li>
+								<li><button id="zhihu"><h3>知乎</h3></button></li>
+								<li><button id="google2"><h3>谷歌2</h3></button></li>
 							</ul>
 						</li>
 					</ul>
@@ -103,6 +106,9 @@
 						yqlist[7] = "https://s.taobao.com/search?q=";
 						yqlist[8] = "https://weixin.sogou.com/weixinwap?query=";
 						yqlist[9] = "https://pc.qq.com/search.html#!keyword=";
+						yqlist[10] = "https://scholar.lanfanshu.cn/scholar?q=";
+						yqlist[11] = "https://txt.guoqiangti.ga/search?q=";
+						yqlist[12] = "https://www.google-fix.com/search?q=";
 						var url = yqlist[0];
 						var idlist = new Array();
 						idlist[0] = '#baidu';
@@ -115,6 +121,9 @@
 						idlist[7] = '#taobao';
 						idlist[8] = '#weixin';
 						idlist[9] = '#rj';
+						idlist[10] = '#glxs';
+						idlist[11] = '#google';
+						idlist[12] = '#google2';
 						// $('#baidu').css("color","white");
 						$(function(){
 							for(var j=0; j<idlist.length; j++){
@@ -187,6 +196,17 @@
 						<td><a href="https://v.qq.com/" title="腾讯在线视频" target="_blank">腾讯视频</a></td>
 						<td><a href="https://wht.im/" title="其它导航网站" target="_blank">万花筒</a></td>
 					</tr>
+					<tr>
+						<td><a href="http://scholar.hedasudi.com/" title="谷歌学术镜像站2" target="_blank">谷歌学术2</a></td>
+						<td><a href="http://www.4243.net/" title="小木虫学术导航" target="_blank">小木虫学术</a></td>
+						<td><a href="http://vpcs.cqvip.com/organ/lib/zhbit/" title="北理珠维普网" target="_blank">北理珠维普</a></td>
+									<!--  -->
+						<td><a href="http://zhbit.fanya.chaoxing.com/portal" title="北理珠超星网络平台" target="_blank">北理珠超星</a></td>			
+						<td><a href="http://www.bitzh.edu.cn/jgsz/wzdh.html" title="北理珠导航页" target="_blank">北理珠导航</a></td>	
+						<td><a href="https://www.taobao.com/" title="淘宝网" target="_blank">淘宝</a></td>	
+					</tr>
+					<tr>	
+					</tr>
 					</table>
 					<table class="tbone">
 						<tr><th colspan="3">各类资源获取</th><th colspan="3">学习网站</th></tr>
@@ -222,13 +242,20 @@
 						</tr>
 						<tr><th colspan="6">工具</th></tr>
 						<tr>
-							<td><a href="https://www.chuangkit.com/" title="创客帖" target="_blank">平面设计</a></td>
+							<td><a href="https://www.jiepei.com/" title="捷配PCB" target="_blank">捷配网</a></td>
+							<td><a href="https://www.jlc.com/" title="嘉立创PCB商城" target="_blank">嘉立创</a></td>
 							<td><a href="https://lightpdf.com/zh/" title="在线PDF编辑" target="_blank">PDF编辑</a></td>
-							<td><a href="https://cn.office-converter.com" title="在线万能格式转换" target="_blank">格式转换</a></td>				
 							<td><a href="https://write.qq.com/" title="阅文作家写作平台" target="_blank">作家平台</a></td>			
 							<td><a href="https://www.uupoop.com/#/" title="在线PS网站" target="_blank">在线PS</a></td>	
 							<td><a href="https://web.woobx.cn/" title="一个木函工具箱" target="_blank">一个木函</a></td>	
-						</tr>		
+						</tr>
+						<tr>
+							<td><a href="https://www.chuangkit.com/" title="创客帖" target="_blank">平面设计</a></td>
+							<td><a href="https://cn.office-converter.com" title="在线万能格式转换" target="_blank">格式转换</a></td>
+							<td><a href="https://ac.scmor.com/" title="谷歌学术镜像站1" target="_blank">谷歌学术1</a></td>
+							<td><a href="https://www.wanfangdata.com.cn/index.html" title="万方数据库入口" target="_blank">万方</a></td>
+							<td><a href="https://www.sciencedirect.com/" title="文献查找" target="_blank">SCI</a></td>	
+						</tr>
 					</table>
 				</div> 
 			</div>
