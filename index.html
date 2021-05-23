@@ -10,8 +10,8 @@
 	<link rel="icon" type="image/x-icon" href="photo/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="css/kuang.css">
 	<link rel="stylesheet" type="text/css" href="css/bodys.css">
-	<!-- <link href="https://cdn.bootcss.com/font-awesome/5.8.0/css/all.css" rel="stylesheet" /> -->
-	<!-- <script type="text/javascript" src="js/func.js"></script> -->
+	<!-- <script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script> -->
+	<script src="js/jquery.1.7.2.js"></script>
 	<script type="text/javascript">
 		function clock(){
 			var mydate = new Date();
@@ -26,16 +26,20 @@
 				case 4: days = '星期四'; break;
 				case 5: days = '星期五'; break;
 				case 6: days = '星期六'; break;
-				case 7: days = '星期日'; break;
+				case 0: days = '星期日'; break;
 				default: days = "系统错误!"
 			}
-			document.getElementById("time").innerHTML = mydate.getHours() + ":" + mydate.getMinutes() + ":" + mydate.getSeconds();
+			document.getElementById("time").innerHTML = preZero(mydate.getHours(),2) + ":" + preZero(mydate.getMinutes(),2) + ":" + preZero(mydate.getSeconds(),2);
 			var spt = document.getElementById("riqi");
 			spt.innerHTML = years + "年" + month + "月" + day + "日";
 			var spweek = document.getElementById("xq");
 			spweek.innerHTML = days;
 			window.setTimeout(clock,1000);
 		}
+		//位数不够前补零   num:被操作数 n: 指定位数
+		function preZero(num, n) {
+	    return (Array(n).join(0) + num).slice(-n);
+	}
 	</script>
 </head>
 <body onload="clock()">	
@@ -45,58 +49,95 @@
 			<li><a href="#" title="首页">首页</a></li>
 			<li><a href="html/ruanjian.html" title="windows软件下载">windows软件下载</a></li>
 			<li><a href="html/jiao.html" title="教程整合">教程整合</a></li>
-			<li><a href="https://baseyao.github.io/" title="abcsoftware.cn" target="_blank">资源下载</a></li>
+			<li><a href="https://baseyao.github.io/" title="github项目地址" target="_blank">资源下载</a></li>
 		</ul>
 		<div class="tt"></div>
 	</div>
 	<div class="bodys">
 			<div class="photos">
 				<div id="times">
-					<p id="time"></p>
+					<h1 id="time"></h1>
 					<p id="riqi"></p>
 					<p id="xq"></p>
 				</div>
 				<div class="searchList">
 					<ul id="list"></ul>
 				</div>
+				<div class="search_div">
+					<hr>
+					<ul class="searchFun" id="searchFun">
+						<li>
+							<ul class="zi">
+								<li><button id="baidu"><h3 class="spe">百度</h3></button></li>
+								<li><button id="bing"><h3>必应</h3></button></li>
+								<li><button id="sougou"><h3>搜狗</h3></button></li>
+								<li><button id="weixin"><h3>微信</h3></button></li>
+							</ul>
+						</li>
+						<li>
+							<ul class="zi">
+								<li><button id="bili"><h3>B站</h3></button></li>
+								<li><button id="csdn"><h3>CSDN</h3></button></li>
+								<li><button id="xueshu"><h3>学术</h3></button></li>
+								<li><button id="zhihu"><h3>知乎</h3></button></li>
+							</ul>
+						</li>
+						<li>
+							<ul class="zi">
+								<li><button id="taobao"><h3>淘宝</h3></button></li>
+								<li><button id="rj"><h3>应用</h3></button></li>
+							</ul>
+						</li>
+					</ul>
+					<!--  -->
+					<script type="text/javascript">
+						var yinqin = true;
+						var yqlist = new Array();
+						yqlist[0] = "https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=";
+						yqlist[1] = "https://cn.bing.com/search?q=";
+						yqlist[2] = "https://www.sogou.com/web?query=";
+						yqlist[3] = "https://search.bilibili.com/all?keyword=";
+						yqlist[4] = "https://so.csdn.net/so/search?q=";
+						yqlist[5] = "https://xueshu.baidu.com/s?wd=";
+						yqlist[6] = "https://www.zhihu.com/search?q=";
+						yqlist[7] = "https://s.taobao.com/search?q=";
+						yqlist[8] = "https://weixin.sogou.com/weixinwap?query=";
+						yqlist[9] = "https://pc.qq.com/search.html#!keyword=";
+						var url = yqlist[0];
+						var idlist = new Array();
+						idlist[0] = '#baidu';
+						idlist[1] = '#bing';
+						idlist[2] = '#sougou';
+						idlist[3] = '#bili';
+						idlist[4] = '#csdn';
+						idlist[5] = '#xueshu';
+						idlist[6] = '#zhihu';
+						idlist[7] = '#taobao';
+						idlist[8] = '#weixin';
+						idlist[9] = '#rj';
+						// $('#baidu').css("color","white");
+						$(function(){
+							for(var j=0; j<idlist.length; j++){
+								shows(idlist[j], j);
+							}
+						});
+						function shows(ids, listnum){
+							$(ids).on('click',function(){
+								if(ids == '#baidu'){
+									yinqin = true;
+								}
+								else{yinqin = false;}
+								url = yqlist[listnum];
+								$('#searchFun h3').removeClass('spe');
+								$(this).children().addClass('spe');
+							});
+						}
+					</script>
+				</div>
 				<div class="search">
-					<input id="text" class="search-txt" type="text" name="text" placeholder="百度搜索">
+					<input id="text" class="search-txt" type="search" name="text" placeholder="万千星辰此处寻">
 					<button class="search-btn" name="bdyx" id="btn" onclick="cliksearch()">
 						<img src="photo/search_icon.png" alt="搜索"></button>
-						<script type="text/javascript">
-						var txt = document.getElementById("text"); 
-						var oUl = document.getElementById("list"); 
-						txt.onkeyup = function(){ 
-							var val = txt.value; 
-							var oScript = document.createElement("script");//动态创建script标签 
-							oScript.src = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+val+"&cb=callback"; 
-							//添加链接及回调函数 
-							document.body.appendChild(oScript);//添加script标签 
-							document.body.removeChild(oScript);//删除script标签 
-							/*input框中按下回车根据input的值跳转页面*/
-							if(event.keyCode==13){
-								/*将百度作为连接,传入input的值,并跳入新的页面*/
-								cliksearch();
-							}
-						}
-						document.body.onclick = function(){
-							oUl.style.display = "none";
-						}
-						//回调函数 
-						function callback(data){ 
-							var str=""; 
-							for(var i=0;i<data.s.length;i++){ 
-							str += "<li><a target=\"_blank\"  href=\"https://www.baidu.com/s?wd="+data.s[i]+"\">"+data.s[i]+"</a></li>"; 
-							} 
-							//console.log(str); 
-							oUl.innerHTML=str; 
-							oUl.style.display="block"; 
-						}
-						function cliksearch(){
-							url = "https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd="+txt.value
-							window.open(url, '_blank').location;
-						}
-						</script>
 				</div>
 			</div>
 		<div class="www">
@@ -185,7 +226,8 @@
 							<td><a href="https://lightpdf.com/zh/" title="在线PDF编辑" target="_blank">PDF编辑</a></td>
 							<td><a href="https://cn.office-converter.com" title="在线万能格式转换" target="_blank">格式转换</a></td>				
 							<td><a href="https://write.qq.com/" title="阅文作家写作平台" target="_blank">作家平台</a></td>			
-							<td><a href="https://www.uupoop.com/#/" title="在线PS网站" target="_blank">在线PS</a></td>			
+							<td><a href="https://www.uupoop.com/#/" title="在线PS网站" target="_blank">在线PS</a></td>	
+							<td><a href="https://web.woobx.cn/" title="一个木函工具箱" target="_blank">一个木函</a></td>	
 						</tr>		
 					</table>
 				</div> 
@@ -221,5 +263,7 @@
 		</div>
 	</div>
 	<div class="foots">@先通.将寂 | AI Technology craystal</div>
+	<script type="text/javascript" src="js/func.js"></script>
+
 </body>
 </html>

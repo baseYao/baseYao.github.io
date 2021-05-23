@@ -32,7 +32,7 @@ div.hd{width: 224px;margin: 0px auto;}
     padding: 5px 5px;
 }
 #time{
-    font-weight: bold;
+    /* font-weight: bold; */
     font-size: 60px;
 }
 /* 搜索框功能 */
@@ -116,6 +116,35 @@ div.headwww h2{
     float: left;
 }
 div.headwww img{float: left;padding-top: 4px;}
+/* 搜索引擎选择 */
+div.search_div{
+    position: absolute;
+    top: 380px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+ul.searchFun{
+    list-style-type: none;
+	/* float: left; */
+}
+ul.searchFun li{
+	display: inline;
+}
+ul.searchFun button{
+    border: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(151, 151, 151);
+}
+.spe{
+    color: white;
+}
+ul.zi{
+    list-style-type: none;
+}
 /*主体左部*/
 div.sou{
     width: 760px;
@@ -129,7 +158,11 @@ div.sou>table{
     text-align: center;
 }
 div.sou th{
-    border: 1px solid black;}
+    border: 1px solid black;
+    background-image: url(../photo/text.png);
+    background-size: 758px, 100%;
+    color: white;
+}
 div.sou th{padding: 5px;}
 table.tbone td{width: 16.6%}
 div.sou a:link,div.sou a:visited{
@@ -142,34 +175,8 @@ div.sou a:link,div.sou a:visited{
 }
 div.sou a:hover,div.sou a:active{
     color: white;
-    background-color: #025b85;
+    background-color: #0079b1;
 }
-/*主体右部
-div.learn{
-    margin-left: 10px;
-    width: 400px;
-    box-shadow: 1px 1px 2px gray;
-    background-color: white;
-    float: left;
-}
-div.learn>table{
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
-}
-div.learn th{padding: 5px;border: 1px solid black;}
-div.learn a:link,div.learn a:visited{
-    display: block;
-    width: 100%;
-    color: black;
-    text-decoration: none;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-div.learn a:hover,div.learn a:active{
-    color: white;
-    background-color: #025b85;
-}*/
 /*右侧论坛*/
 div.bbs{
     margin-left: 20px;
