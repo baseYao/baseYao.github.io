@@ -89,13 +89,14 @@
 								<li><button id="rj"><h3>应用</h3></button></li>
 								<li><button id="zhihu"><h3>知乎</h3></button></li>
 								<li><button id="google2"><h3>谷歌2</h3></button></li>
-								<li><button id="tianyan"><h3>天眼查</h3></button></li>
+								<li><button id="arvix"><h3>arvix</h3></button></li>
 							</ul>
 						</li>
 					</ul>
 					<!--  -->
 					<script type="text/javascript">
 						var yinqin = true;
+						var ids;
 						var yqlist = new Array();
 						yqlist[0] = "https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=intitle:";
 						yqlist[1] = "https://cn.bing.com/search?q=";
@@ -110,7 +111,7 @@
 						yqlist[10] = "https://scholar.lanfanshu.cn/scholar?q=";
 						yqlist[11] = "https://www.google.ryancray.com/search?q=";
 						yqlist[12] = "https://www.google-fix.com/search?q=";
-						yqlist[13] = "https://www.tianyancha.com/search?key=";
+						yqlist[13] = "https://arxiv.org/search/?query="
 						var url = yqlist[0];
 						var idlist = new Array();
 						idlist[0] = '#baidu';
@@ -126,14 +127,15 @@
 						idlist[10] = '#glxs';
 						idlist[11] = '#google';
 						idlist[12] = '#google2';
-						idlist[13] = '#tianyan';
+						idlist[13] = '#arvix'
 						// $('#baidu').css("color","white");
 						$(function(){
 							for(var j=0; j<idlist.length; j++){
-								shows(idlist[j], j);
+								ids = idlist[j];
+								shows(j);
 							}
 						});
-						function shows(ids, listnum){
+						function shows(listnum){
 							$(ids).on('click',function(){
 								if(ids == '#baidu'){
 									yinqin = true;
@@ -206,7 +208,10 @@
 									<!--  -->
 						<td><a href="http://xuexi365.com/" title="超星学习通网络平台" target="_blank">学习通</a></td>			
 						<td><a href="http://www.bitzh.edu.cn/jgsz/wzdh.html" title="北理珠导航页" target="_blank">北理珠导航</a></td>	
-						<td><a href="https://www.taobao.com/" title="淘宝网" target="_blank">淘宝</a></td>	
+						<td><a href="https://www.taobao.com/" title="淘宝网" target="_blank">淘宝</a></td>
+					</tr>
+					<tr>
+						<td><a href="https://arxiv.org/" title="论文预印本下载" target="_blank">arVix</a></td>
 					</tr>
 					<tr>	
 					</tr>

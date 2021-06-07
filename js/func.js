@@ -30,6 +30,11 @@ function callback(data){
 }
 function cliksearch(){
     // var url = "https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd="+txt.value
-    lasturl = url +  txt.value;
+    if(ids == '#arvix'){
+        lasturl = url + txt.value + "&searchtype=all&abstracts=show&order=-announced_date_first&size=50";
+    }
+    else{
+        lasturl = url +  txt.value;
+    }
     window.open(lasturl, '_blank').location;
 }
